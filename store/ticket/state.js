@@ -1,4 +1,8 @@
+import ticket from ".";
+
 export default () => ({
-    tickets: []
+    tickets: [],
+    ticket: null,
+
   })
   

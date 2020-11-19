@@ -6,15 +6,13 @@
     <div class="content">
       <div>
         <h1 class="title">Choose your dream destination...</h1>
-        <!-- <div class="links">
-          <a href="#" class="giant-button"> San Francisco, USA </a>
-          <a href="#" class="giant-button"> Québec, Canada </a>
-          <a href="#" class="giant-button"> Bora Bora, Polynésie </a>
-          <a href="#" class="giant-button"> Torres del Paine, Chile </a>
-        </div> -->
-
+    
          <div class="links" >
-             <a href="#" class="giant-button" v-for="ticket in tickets" :key="ticket.code">{{ticket.from}} </a>
+             <a href="#" class="giant-button" v-for="ticket in tickets" :key="ticket.code">
+                 <NuxtLink :to="`/bording/${ticket.number}`">           
+                    {{ticket.from}} 
+                </NuxtLink>
+              </a>
           </div>
       </div>
     </div>

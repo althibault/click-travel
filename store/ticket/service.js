@@ -24,5 +24,26 @@ export default {
           .catch(error => console.log(error))
       })
     },
+
+    getTicket(number) {
+      return new Promise((resolve, reject) => {
+        api.get('tickets/'+ number,{
+          params:        
+          {
+           
+            offset: 0,
+            limit: 100,      
+            skip: 0,  
+            
+            
+          }
+          }
+        )
+          .then(response => {
+            resolve(response.data)
+          })
+          .catch(error => console.log(error))
+      })
+    },
     
 }

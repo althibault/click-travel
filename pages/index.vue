@@ -17,7 +17,8 @@
            
              <a  class="giant-button" v-for="destination in dreamDestinations" :key="destination.code"> 
                <NuxtLink :to="`/tickets/${destination.code}`">           
-               {{destination.name}}            </NuxtLink>
+                    {{destination.name}}           
+                </NuxtLink>
            </a>
   
           </div>

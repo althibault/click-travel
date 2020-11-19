@@ -11,4 +11,17 @@ export default {
         state.commit('setTickets', []);        
       });
   },
+
+  loadTicket(state,number) {
+    service.getTicket(number)
+      .then((data) => {
+        console.log(data);
+        console.log(data);
+        state.commit('setTicket', data);        
+      })
+      .catch(() => {
+        state.commit('setTicket', []);        
+      });
+  },
+
 }
