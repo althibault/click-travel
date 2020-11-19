@@ -6,19 +6,40 @@
     <div class="content">
       <div>
         <h1 class="title">Choose your dream destination...</h1>
-        <div class="links">
+        <!-- <div class="links">
           <a href="#" class="giant-button"> San Francisco, USA </a>
           <a href="#" class="giant-button"> Québec, Canada </a>
           <a href="#" class="giant-button"> Bora Bora, Polynésie </a>
           <a href="#" class="giant-button"> Torres del Paine, Chile </a>
-        </div>
+        </div> -->
+
+         <div class="links" >
+             <a href="#" class="giant-button" v-for="destination in dreamDestinations" :key="destination.code">{{destination.name}} </a>
+          </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import {mapActions, mapGetters} from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters({
+      dreamDestinations: "destination/getDestinations",
+    }),   
+     
+  },
+  methods: {
+    ...mapActions({
+      loadDestinations: "destination/loadDestinations",
+    }),
+  },
+  mounted() {
+      this.loadDestinations();
+  },
+}
 </script>
 
 <style lang="scss">
