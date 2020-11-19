@@ -14,12 +14,7 @@
         </div> -->
 
          <div class="links" >
-           
-             <a  class="giant-button" v-for="destination in dreamDestinations" :key="destination.code"> 
-               <NuxtLink :to="`/tickets/${destination.code}`">           
-               {{destination.name}}            </NuxtLink>
-           </a>
-  
+             <a href="#" class="giant-button" v-for="ticket in tickets" :key="ticket.code">{{ticket.from}} </a>
           </div>
       </div>
     </div>
@@ -32,17 +27,18 @@ import {mapActions, mapGetters} from "vuex";
 export default {
   computed: {
     ...mapGetters({
-      dreamDestinations: "destination/getDestinations",
+      tickets: "ticket/getTickets",
     }),   
      
   },
   methods: {
     ...mapActions({
-      loadDestinations: "destination/loadDestinations",
+      loadTickets: "ticket/loadTickets",
     }),
   },
   mounted() {
-      this.loadDestinations();
+    console.log(this.$route.params.code);
+      this.loadTickets(this.$route.params.code);
   },
 }
 </script>
